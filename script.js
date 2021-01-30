@@ -1,5 +1,5 @@
 //function for updating ticket number and their corresponding price
-function updateField(idName, isIncreasing, price) {
+function updateField(idName, isIncreasing) {
 	const inputField = document.getElementById(idName + 'ticket');
 	var ticket = parseInt(inputField.value);
 
@@ -11,14 +11,14 @@ function updateField(idName, isIncreasing, price) {
 			inputField.value = ticket - 1;
 		}
 	}
-	newTicket = parseInt(inputField.value);
-    document.getElementById(idName + 'price').innerText = newTicket * price;
     updateTotal();
 }
 
 function totalFare() {
-    var firstClassFare = parseInt(document.getElementById('first-class-price').innerText);
-    var economyFare = parseInt(document.getElementById('economy-price').innerText);
+    var firstClassTicket = parseInt(document.getElementById('first-class-ticket').value);
+    var firstClassFare = 150 * firstClassTicket;
+    var economyTicket = parseInt(document.getElementById('economy-ticket').value);
+    var economyFare = 100 * economyTicket;
     return firstClassFare + economyFare;
 }
 
@@ -32,23 +32,25 @@ function updateTotal()
     document.getElementById('grand-total').innerText = '$' + grandTotal;
 }
 
+updateTotal();
+
 var firstClassPlus = document.getElementById('first-class-plus');
 firstClassPlus.addEventListener('click', function() {
-	updateField('first-class-', true, 150);
+	updateField('first-class-', true);
 });
 
 var firstClassMinus = document.getElementById('first-class-minus');
 firstClassMinus.addEventListener('click', function() {
-	updateField('first-class-', false, 150);
+	updateField('first-class-', false);
 });
 
 
 var economyPlus = document.getElementById('economy-plus');
 economyPlus.addEventListener('click', function() {
-	updateField('economy-', true, 100);
+	updateField('economy-', true);
 });
 
 var firstClassMinus = document.getElementById('economy-minus');
 firstClassMinus.addEventListener('click', function() {
-	updateField('economy-', false, 100);
+	updateField('economy-', false);
 });
