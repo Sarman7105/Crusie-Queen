@@ -17,7 +17,7 @@
 
 <body>
     <!--Header and Menu Section-->
-    <header class="container">
+    <header class="container" id="navigation">
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -29,7 +29,7 @@
     </header>
 
     <!--Booking Section-->
-    <main class="main-content container">
+    <main class="main-content container" id="booking-section">
 
         <div class="booking-content">
             <h1>Cruise Queen</h1>
@@ -109,9 +109,17 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button class="btn-style" id="order-submit">Book Now</button>
         </div>
     </main>
+
+    <div id="conformation-section">
+        <img src="images/success.png" alt="">
+        <p class="text-success text-center">your order has been placed</p>
+        <p class="text-success text-center">Thank you for being with Us</p>
+        <button class="btn btn-success btn-lg" id="back-btn">Back</button>
+        
+    </div>
 
     <script src="script.js"></script>
 </body>

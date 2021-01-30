@@ -54,3 +54,27 @@ var firstClassMinus = document.getElementById('economy-minus');
 firstClassMinus.addEventListener('click', function() {
 	updateField('economy-', false);
 });
+
+document.getElementById('order-submit').addEventListener('click', function () {
+    var firstClassTicket = parseInt(document.getElementById('first-class-ticket').value);
+    var economyTicket = parseInt(document.getElementById('economy-ticket').value);
+    if (firstClassTicket == 0 && economyTicket == 0) {
+        alert('you have to buy at least one ticket');
+    }
+    
+    else {
+    var mainContent = document.getElementById('booking-section');
+    mainContent.style.display = "none";
+    document.body.style.backgroundImage = "none";
+    document.getElementById("navigation").style.display = "none";
+    document.getElementById("conformation-section").style.display = "block";
+    }
+});
+
+document.getElementById('back-btn').addEventListener("click", function () {
+    var mainContent = document.getElementById('booking-section');
+    document.getElementById("navigation").style.display = "block";
+    document.getElementById("conformation-section").style.display = "none";
+    mainContent.style.display = "block";
+    document.body.style.backgroundImage = "url('images/ship.png')"
+});
