@@ -83,9 +83,5 @@ document.getElementById('order-submit').addEventListener('click', function () {
 
 //handling additional section button event
 document.getElementById('back-btn').addEventListener("click", function () {
-    var mainContent = document.getElementById('booking-section');
-    document.getElementById("navigation").style.display = "block";
-    document.getElementById("conformation-section").style.display = "none";
-    mainContent.style.display = "block";
-    document.body.style.backgroundImage = "url('images/ship.png')"
+    location.reload();
 });
