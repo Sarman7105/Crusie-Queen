@@ -1,4 +1,4 @@
-//function for updating ticket number and their corresponding price
+//function for updating ticket number
 function updateField(idName, isIncreasing) {
 	const inputField = document.getElementById(idName + 'ticket');
 	var ticket = parseInt(inputField.value);
@@ -14,6 +14,7 @@ function updateField(idName, isIncreasing) {
     updateTotal();
 }
 
+//function for calculating total fare
 function totalFare() {
     var firstClassTicket = parseInt(document.getElementById('first-class-ticket').value);
     var firstClassFare = 150 * firstClassTicket;
@@ -22,6 +23,7 @@ function totalFare() {
     return firstClassFare + economyFare;
 }
 
+//function for updating total fare and grand fare
 function updateTotal()
 {
     var fare = totalFare();
@@ -31,37 +33,44 @@ function updateTotal()
     var grandTotal = fare + vat;
     document.getElementById('grand-total').innerText = '$' + grandTotal;
 }
-
 updateTotal();
 
+
+//Event handeler for first Class plus button
 var firstClassPlus = document.getElementById('first-class-plus');
 firstClassPlus.addEventListener('click', function() {
 	updateField('first-class-', true);
 });
 
+//Event handeler for first Class Minus button
 var firstClassMinus = document.getElementById('first-class-minus');
 firstClassMinus.addEventListener('click', function() {
 	updateField('first-class-', false);
 });
 
-
+//Event handeler for economy Class plus button
 var economyPlus = document.getElementById('economy-plus');
 economyPlus.addEventListener('click', function() {
 	updateField('economy-', true);
 });
 
+////Event handeler for first Class minus button
 var firstClassMinus = document.getElementById('economy-minus');
 firstClassMinus.addEventListener('click', function() {
 	updateField('economy-', false);
 });
 
+
+//Additional section
 document.getElementById('order-submit').addEventListener('click', function () {
+    //handling case if no ticket is bought
     var firstClassTicket = parseInt(document.getElementById('first-class-ticket').value);
     var economyTicket = parseInt(document.getElementById('economy-ticket').value);
     if (firstClassTicket == 0 && economyTicket == 0) {
         alert('you have to buy at least one ticket');
     }
     
+    // hide main content if ticket is bought and show additional section
     else {
     var mainContent = document.getElementById('booking-section');
     mainContent.style.display = "none";
@@ -71,6 +80,8 @@ document.getElementById('order-submit').addEventListener('click', function () {
     }
 });
 
+
+//handling additional section button event
 document.getElementById('back-btn').addEventListener("click", function () {
     var mainContent = document.getElementById('booking-section');
     document.getElementById("navigation").style.display = "block";
